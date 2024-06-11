@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Professor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: right;
+        }
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        main {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            max-width: 400px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: calc(100% - 16px);
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .btn-aluguel, .btn-adicionar-professor {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        .btn-aluguel:hover, .btn-adicionar-professor:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>Olá, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+    </header>
+    <main>
+        <h1>Informações da Reserva</h1>
+        <form method="POST" action="{% url 'adicionar_professor' %}">
+            {% csrf_token %}
+            <label for="nome-professor"> Professor:</label>
+            <input type="text" id="nome-professor" name="nome-professor">
+
+            <label for="materia-professor">Matéria do Professor:</label>
+            <input type="text" id="materia-professor" name="materia-professor">
+            
+            <label for="sala">sala de aula:</label>
+            <input type="text" id="sala" name="sala">
+            
+            <button type="submit">Adicionar Professor</button>
+        </form>
+        <a href="{% url 'adicionar_datashow' %}" class="btn-aluguel">Ir para Área de Datashows</a>
+        <a href="{% url 'tabela_professor' %}" class="btn-adicionar-professor">Ir para Tabela de professores</a>
+    </main>
+</body>
+</html>

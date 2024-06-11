@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professores Adicionados</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        main {
+            width: 90%;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        table, th, td {
+            border: 1px solid #b2dfdb;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #00796b;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        tr:nth-child(even) {
+            background-color: #e0f2f1;
+        }
+        tr:hover {
+            background-color: #b2dfdb;
+        }
+        .btn-voltar, .btn-remover, .btn-aluguel {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            text-align: center;
+            margin-right: 10px;
+        }
+        .btn-voltar:hover, .btn-remover:hover, .btn-aluguel:hover {
+            background-color: #004d40;
+        }
+        .btn-remover {
+            background-color: #d9534f;
+        }
+        .btn-remover:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Professores Adicionados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Professor</th>
+                    <th>Matéria</th>
+                    <th>Sala</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Professor in Professores %}
+                <tr>
+                    <td>{{ Professor.nome }}</td>
+                    <td>{{ Professor.materia }}</td>
+                    <td>{{ Professor.sala }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'remover_Professor' user.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-remover">Remover</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'adicionar_professor' %}" class="btn-voltar">Adicionar Outros Professores</a>
+        <a href="{% url 'aluguel' %}" class="btn-aluguel">Ir para Aluguel</a>
+    </main>
+</body>
+</html>

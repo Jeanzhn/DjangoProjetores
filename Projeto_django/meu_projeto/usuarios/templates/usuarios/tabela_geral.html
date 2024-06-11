@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Geral de Reservas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        main {
+            width: 90%;
+            max-width: 900px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #00796b;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 16px;
+            text-align: left;
+        }
+        th {
+            background-color: #00796b;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .btn {
+            padding: 12px 24px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #004d40;
+        }
+        .btn-tabela {
+            background-color: #009688;
+        }
+        .btn-tabela:hover {
+            background-color: #00695c;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Tabela Geral de Reservas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Sala</th>
+                    <th>Professor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for datashow in datashows %}
+                <tr>
+                    <td>{{ datashow.marca }}</td>
+                    <td>{{ datashow.sala }}</td>
+                    <td>{{ datashow.professor.nome }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="btn-group">
+            <a href="{% url 'adicionar_professor' %}" class="btn btn-tabela">Ir para Adicionar Professor</a>
+            <a href="{% url 'aluguel' %}" class="btn btn-tabela">Voltar Para Aluguel</a>
+        </div>
+    </main>
+</body>
+</html>

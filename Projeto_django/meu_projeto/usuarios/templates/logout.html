@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #343a40; 
+            color: #fff; 
+            padding: 15px 20px;
+            text-align: right;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .header-content {
+            margin-left: auto;
+        }
+        header a {
+            color: #ffc107;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        header a:hover {
+            color: #f8f9fa; 
+        }
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #e9ecef; 
+        }
+        h1 {
+            color: #343a40; 
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #ffffff; 
+            max-width: 600px;
+        }
+        p1 {
+            font-size: 20px;
+            color: #343a40;
+        }
+        strong {
+            color: #ffbf00;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff; 
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <p>Byebye, <strong>{{ user.username }}</strong> , Se quiser voltar! <a href="{% url 'index' %}">Entrar</a></p>
+        </div>
+    </header>
+    <main>
+        <h1>Obrigado pela atenção</h1>
+        <p1>Estamos preparando novidades para você. Fique ligado!</p1>
+    </main>
+    <footer>
+        <p>&copy; 2024 DataAlugar. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
