@@ -1,0 +1,166 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Jeanzhn/DjangoProjetores/blob/main/git%40github.com%3AJeanzhn/POO---fACUL.git\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 83,
+      "metadata": {
+        "id": "zwFnJsE6vjf8"
+      },
+      "outputs": [],
+      "source": [
+        "class Animal:\n",
+        "  def __init__(self, nome, idade):\n",
+        "    self.nome = nome\n",
+        "    self.idade = idade\n",
+        "\n",
+        "  def fazer_som(self, som):\n",
+        "    print(f'{self.nome} emitiu sons sonoros: {som}')\n",
+        "\n",
+        "  def exibir_infos(self):\n",
+        "    print('==='*12)\n",
+        "    print(f'O nome do animal é {self.nome}')\n",
+        "    print(f'A idade do animal é {self.idade} ano')\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Cachorro(Animal):\n",
+        "  def __init__(self, nome, idade, raca):\n",
+        "    super().__init__(nome, idade)\n",
+        "    self.raca = raca\n",
+        "\n",
+        "  def exibir_infos(self):\n",
+        "    super().exibir_infos()\n",
+        "    print(f'Raça: {self.raca}')\n",
+        "    print('==='*12)\n",
+        "\n",
+        "  def latir(self):\n",
+        "    super().fazer_som('au au')\n"
+      ],
+      "metadata": {
+        "id": "fIBEYS5RS4-8"
+      },
+      "execution_count": 84,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Gato(Animal):\n",
+        "  def __init__(self, nome, idade, cor):\n",
+        "    super().__init__(nome, idade)\n",
+        "    self.cor = cor\n",
+        "\n",
+        "  def miar(self):\n",
+        "    super().fazer_som('miamia')\n",
+        "\n",
+        "  def exibir_infos(self):\n",
+        "    super().exibir_infos()\n",
+        "    print(f'{self.nome} de cor: {self.cor}')\n",
+        "    print('==='*12)\n"
+      ],
+      "metadata": {
+        "id": "uEdL9AK6TMWU"
+      },
+      "execution_count": 85,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Passaro(Animal):\n",
+        "  def __init__(self, nome, idade, especie):\n",
+        "    super().__init__(nome, idade)\n",
+        "    self.especie = especie\n",
+        "\n",
+        "  def piar(self):\n",
+        "    super().fazer_som('Coc'+'ó'*12)\n",
+        "\n",
+        "  def exibir_infos(self):\n",
+        "    super().exibir_infos()\n",
+        "    print(f'{self.nome} da especie: {self.especie}')\n",
+        "    print('==='*12)"
+      ],
+      "metadata": {
+        "id": "rzNHZxV2V0MD"
+      },
+      "execution_count": 86,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xanninha = Gato('xanninha', 2,'caputino')\n",
+        "xanninha.exibir_infos()\n",
+        "xanninha.miar()\n",
+        "\n",
+        "gigi = Cachorro('gigi', 3, 'coitadolandia')\n",
+        "gigi.exibir_infos()\n",
+        "gigi.latir()\n",
+        "\n",
+        "blue = Passaro('blue',1,'piriquito')\n",
+        "blue.exibir_infos()\n",
+        "blue.piar()"
+      ],
+      "metadata": {
+        "id": "Lm5fNMk0UTmF",
+        "outputId": "7eef6221-28e9-4bc3-98a8-15e644f79999",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 80,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "====================================\n",
+            "O nome do animal é xanninha\n",
+            "A idade do animal é 2\n",
+            "xanninha de cor: caputino\n",
+            "====================================\n",
+            "xanninha emitiu sons sonoros: miamia\n",
+            "====================================\n",
+            "O nome do animal é gigi\n",
+            "A idade do animal é 3\n",
+            "Raça: coitadolandia\n",
+            "====================================\n",
+            "gigi emitiu sons sonoros: au au\n",
+            "====================================\n",
+            "O nome do animal é blue\n",
+            "A idade do animal é 1\n",
+            "blue da especie: piriquito\n",
+            "====================================\n",
+            "blue emitiu sons sonoros: Cocóóóóóóóóóóóó\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Olá, este é o Colaboratory",
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
